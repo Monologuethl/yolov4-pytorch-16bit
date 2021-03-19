@@ -1,5 +1,5 @@
 ## YOLOV4：You Only Look Once目标检测模型在pytorch当中的实现
-**基于https://github.com/bubbliiiing/yolov4-pytorch 的改进
+基于https://github.com/bubbliiiing/yolov4-pytorch 的改进
 
 - 增加了支持16位图像的dataloader
 - 增加了特征图可视化
