@@ -1,0 +1,4645 @@
+YoloBody(
+  (backbone): CSPDarkNet(
+    (conv1): BasicConv(
+      (conv): Conv2d(3, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (stages): ModuleList(
+      (0): Resblock_body(
+        (downsample_conv): BasicConv(
+          (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (split_conv0): BasicConv(
+          (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (split_conv1): BasicConv(
+          (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (blocks_conv): Sequential(
+          (0): Resblock(
+            (block): Sequential(
+              (0): BasicConv(
+                (conv): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+              (1): BasicConv(
+                (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+                (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+            )
+          )
+          (1): BasicConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+        )
+        (concat_conv): BasicConv(
+          (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+      (1): Resblock_body(
+        (downsample_conv): BasicConv(
+          (conv): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (split_conv0): BasicConv(
+          (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (split_conv1): BasicConv(
+          (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (blocks_conv): Sequential(
+          (0): Resblock(
+            (block): Sequential(
+              (0): BasicConv(
+                (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+              (1): BasicConv(
+                (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+                (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+            )
+          )
+          (1): Resblock(
+            (block): Sequential(
+              (0): BasicConv(
+                (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+              (1): BasicConv(
+                (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+                (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+            )
+          )
+          (2): BasicConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+        )
+        (concat_conv): BasicConv(
+          (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+      (2): Resblock_body(
+        (downsample_conv): BasicConv(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (split_conv0): BasicConv(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (split_conv1): BasicConv(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (blocks_conv): Sequential(
+          (0): Resblock(
+            (block): Sequential(
+              (0): BasicConv(
+                (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+              (1): BasicConv(
+                (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+                (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+            )
+          )
+          (1): Resblock(
+            (block): Sequential(
+              (0): BasicConv(
+                (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+              (1): BasicConv(
+                (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+                (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+            )
+          )
+          (2): Resblock(
+            (block): Sequential(
+              (0): BasicConv(
+                (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+              (1): BasicConv(
+                (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+                (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+            )
+          )
+          (3): Resblock(
+            (block): Sequential(
+              (0): BasicConv(
+                (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+              (1): BasicConv(
+                (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+                (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+            )
+          )
+          (4): Resblock(
+            (block): Sequential(
+              (0): BasicConv(
+                (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+              (1): BasicConv(
+                (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+                (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+            )
+          )
+          (5): Resblock(
+            (block): Sequential(
+              (0): BasicConv(
+                (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+              (1): BasicConv(
+                (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+                (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+            )
+          )
+          (6): Resblock(
+            (block): Sequential(
+              (0): BasicConv(
+                (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+              (1): BasicConv(
+                (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+                (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+            )
+          )
+          (7): Resblock(
+            (block): Sequential(
+              (0): BasicConv(
+                (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+              (1): BasicConv(
+                (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+                (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+            )
+          )
+          (8): BasicConv(
+            (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+        )
+        (concat_conv): BasicConv(
+          (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+      (3): Resblock_body(
+        (downsample_conv): BasicConv(
+          (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (split_conv0): BasicConv(
+          (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (split_conv1): BasicConv(
+          (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (blocks_conv): Sequential(
+          (0): Resblock(
+            (block): Sequential(
+              (0): BasicConv(
+                (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+              (1): BasicConv(
+                (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+                (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+            )
+          )
+          (1): Resblock(
+            (block): Sequential(
+              (0): BasicConv(
+                (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+              (1): BasicConv(
+                (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+                (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+            )
+          )
+          (2): Resblock(
+            (block): Sequential(
+              (0): BasicConv(
+                (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+              (1): BasicConv(
+                (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+                (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+            )
+          )
+          (3): Resblock(
+            (block): Sequential(
+              (0): BasicConv(
+                (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+              (1): BasicConv(
+                (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+                (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+            )
+          )
+          (4): Resblock(
+            (block): Sequential(
+              (0): BasicConv(
+                (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+              (1): BasicConv(
+                (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+                (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+            )
+          )
+          (5): Resblock(
+            (block): Sequential(
+              (0): BasicConv(
+                (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+              (1): BasicConv(
+                (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+                (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+            )
+          )
+          (6): Resblock(
+            (block): Sequential(
+              (0): BasicConv(
+                (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+              (1): BasicConv(
+                (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+                (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+            )
+          )
+          (7): Resblock(
+            (block): Sequential(
+              (0): BasicConv(
+                (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+              (1): BasicConv(
+                (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+                (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+            )
+          )
+          (8): BasicConv(
+            (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+        )
+        (concat_conv): BasicConv(
+          (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+      (4): Resblock_body(
+        (downsample_conv): BasicConv(
+          (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (split_conv0): BasicConv(
+          (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (split_conv1): BasicConv(
+          (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (blocks_conv): Sequential(
+          (0): Resblock(
+            (block): Sequential(
+              (0): BasicConv(
+                (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+              (1): BasicConv(
+                (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+                (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+            )
+          )
+          (1): Resblock(
+            (block): Sequential(
+              (0): BasicConv(
+                (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+              (1): BasicConv(
+                (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+                (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+            )
+          )
+          (2): Resblock(
+            (block): Sequential(
+              (0): BasicConv(
+                (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+              (1): BasicConv(
+                (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+                (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+            )
+          )
+          (3): Resblock(
+            (block): Sequential(
+              (0): BasicConv(
+                (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+              (1): BasicConv(
+                (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+                (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                (activation): Mish()
+              )
+            )
+          )
+          (4): BasicConv(
+            (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+        )
+        (concat_conv): BasicConv(
+          (conv): Conv2d(1024, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+    )
+  )
+  (conv1): Sequential(
+    (0): Sequential(
+      (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+    (1): Sequential(
+      (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+    (2): Sequential(
+      (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+  )
+  (SPP): SpatialPyramidPooling(
+    (maxpools): ModuleList(
+      (0): MaxPool2d(kernel_size=5, stride=1, padding=2, dilation=1, ceil_mode=False)
+      (1): MaxPool2d(kernel_size=9, stride=1, padding=4, dilation=1, ceil_mode=False)
+      (2): MaxPool2d(kernel_size=13, stride=1, padding=6, dilation=1, ceil_mode=False)
+    )
+  )
+  (conv2): Sequential(
+    (0): Sequential(
+      (conv): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+    (1): Sequential(
+      (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+    (2): Sequential(
+      (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+  )
+  (upsample1): Upsample(
+    (upsample): Sequential(
+      (0): Sequential(
+        (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): LeakyReLU(negative_slope=0.1)
+      )
+      (1): Upsample(scale_factor=2.0, mode=nearest)
+    )
+  )
+  (conv_for_P4): Sequential(
+    (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (make_five_conv1): Sequential(
+    (0): Sequential(
+      (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+    (1): Sequential(
+      (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+    (2): Sequential(
+      (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+    (3): Sequential(
+      (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+    (4): Sequential(
+      (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+  )
+  (upsample2): Upsample(
+    (upsample): Sequential(
+      (0): Sequential(
+        (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): LeakyReLU(negative_slope=0.1)
+      )
+      (1): Upsample(scale_factor=2.0, mode=nearest)
+    )
+  )
+  (conv_for_P3): Sequential(
+    (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (make_five_conv2): Sequential(
+    (0): Sequential(
+      (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+    (1): Sequential(
+      (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+    (2): Sequential(
+      (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+    (3): Sequential(
+      (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+    (4): Sequential(
+      (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+  )
+  (yolo_head3): Sequential(
+    (0): Sequential(
+      (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+    (1): Conv2d(256, 24, kernel_size=(1, 1), stride=(1, 1))
+  )
+  (down_sample1): Sequential(
+    (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (make_five_conv3): Sequential(
+    (0): Sequential(
+      (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+    (1): Sequential(
+      (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+    (2): Sequential(
+      (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+    (3): Sequential(
+      (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+    (4): Sequential(
+      (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+  )
+  (yolo_head2): Sequential(
+    (0): Sequential(
+      (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+    (1): Conv2d(512, 24, kernel_size=(1, 1), stride=(1, 1))
+  )
+  (down_sample2): Sequential(
+    (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (make_five_conv4): Sequential(
+    (0): Sequential(
+      (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+    (1): Sequential(
+      (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+    (2): Sequential(
+      (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+    (3): Sequential(
+      (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+    (4): Sequential(
+      (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+  )
+  (yolo_head1): Sequential(
+    (0): Sequential(
+      (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+    (1): Conv2d(1024, 24, kernel_size=(1, 1), stride=(1, 1))
+  )
+)
+backbone
+CSPDarkNet(
+  (conv1): BasicConv(
+    (conv): Conv2d(3, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (stages): ModuleList(
+    (0): Resblock_body(
+      (downsample_conv): BasicConv(
+        (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (split_conv0): BasicConv(
+        (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (split_conv1): BasicConv(
+        (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (blocks_conv): Sequential(
+        (0): Resblock(
+          (block): Sequential(
+            (0): BasicConv(
+              (conv): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+            (1): BasicConv(
+              (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+          )
+        )
+        (1): BasicConv(
+          (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+      (concat_conv): BasicConv(
+        (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+    (1): Resblock_body(
+      (downsample_conv): BasicConv(
+        (conv): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (split_conv0): BasicConv(
+        (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (split_conv1): BasicConv(
+        (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (blocks_conv): Sequential(
+        (0): Resblock(
+          (block): Sequential(
+            (0): BasicConv(
+              (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+            (1): BasicConv(
+              (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+          )
+        )
+        (1): Resblock(
+          (block): Sequential(
+            (0): BasicConv(
+              (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+            (1): BasicConv(
+              (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+          )
+        )
+        (2): BasicConv(
+          (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+      (concat_conv): BasicConv(
+        (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+    (2): Resblock_body(
+      (downsample_conv): BasicConv(
+        (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (split_conv0): BasicConv(
+        (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (split_conv1): BasicConv(
+        (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (blocks_conv): Sequential(
+        (0): Resblock(
+          (block): Sequential(
+            (0): BasicConv(
+              (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+            (1): BasicConv(
+              (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+          )
+        )
+        (1): Resblock(
+          (block): Sequential(
+            (0): BasicConv(
+              (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+            (1): BasicConv(
+              (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+          )
+        )
+        (2): Resblock(
+          (block): Sequential(
+            (0): BasicConv(
+              (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+            (1): BasicConv(
+              (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+          )
+        )
+        (3): Resblock(
+          (block): Sequential(
+            (0): BasicConv(
+              (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+            (1): BasicConv(
+              (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+          )
+        )
+        (4): Resblock(
+          (block): Sequential(
+            (0): BasicConv(
+              (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+            (1): BasicConv(
+              (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+          )
+        )
+        (5): Resblock(
+          (block): Sequential(
+            (0): BasicConv(
+              (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+            (1): BasicConv(
+              (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+          )
+        )
+        (6): Resblock(
+          (block): Sequential(
+            (0): BasicConv(
+              (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+            (1): BasicConv(
+              (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+          )
+        )
+        (7): Resblock(
+          (block): Sequential(
+            (0): BasicConv(
+              (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+            (1): BasicConv(
+              (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+          )
+        )
+        (8): BasicConv(
+          (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+      (concat_conv): BasicConv(
+        (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+    (3): Resblock_body(
+      (downsample_conv): BasicConv(
+        (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (split_conv0): BasicConv(
+        (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (split_conv1): BasicConv(
+        (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (blocks_conv): Sequential(
+        (0): Resblock(
+          (block): Sequential(
+            (0): BasicConv(
+              (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+            (1): BasicConv(
+              (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+          )
+        )
+        (1): Resblock(
+          (block): Sequential(
+            (0): BasicConv(
+              (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+            (1): BasicConv(
+              (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+          )
+        )
+        (2): Resblock(
+          (block): Sequential(
+            (0): BasicConv(
+              (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+            (1): BasicConv(
+              (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+          )
+        )
+        (3): Resblock(
+          (block): Sequential(
+            (0): BasicConv(
+              (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+            (1): BasicConv(
+              (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+          )
+        )
+        (4): Resblock(
+          (block): Sequential(
+            (0): BasicConv(
+              (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+            (1): BasicConv(
+              (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+          )
+        )
+        (5): Resblock(
+          (block): Sequential(
+            (0): BasicConv(
+              (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+            (1): BasicConv(
+              (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+          )
+        )
+        (6): Resblock(
+          (block): Sequential(
+            (0): BasicConv(
+              (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+            (1): BasicConv(
+              (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+          )
+        )
+        (7): Resblock(
+          (block): Sequential(
+            (0): BasicConv(
+              (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+            (1): BasicConv(
+              (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+          )
+        )
+        (8): BasicConv(
+          (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+      (concat_conv): BasicConv(
+        (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+    (4): Resblock_body(
+      (downsample_conv): BasicConv(
+        (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (split_conv0): BasicConv(
+        (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (split_conv1): BasicConv(
+        (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (blocks_conv): Sequential(
+        (0): Resblock(
+          (block): Sequential(
+            (0): BasicConv(
+              (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+            (1): BasicConv(
+              (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+          )
+        )
+        (1): Resblock(
+          (block): Sequential(
+            (0): BasicConv(
+              (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+            (1): BasicConv(
+              (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+          )
+        )
+        (2): Resblock(
+          (block): Sequential(
+            (0): BasicConv(
+              (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+            (1): BasicConv(
+              (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+          )
+        )
+        (3): Resblock(
+          (block): Sequential(
+            (0): BasicConv(
+              (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+            (1): BasicConv(
+              (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+              (activation): Mish()
+            )
+          )
+        )
+        (4): BasicConv(
+          (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+      (concat_conv): BasicConv(
+        (conv): Conv2d(1024, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+  )
+)
+backbone.conv1
+BasicConv(
+  (conv): Conv2d(3, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.conv1.conv
+Conv2d(3, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+backbone.conv1.bn
+BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.conv1.activation
+Mish()
+backbone.stages
+ModuleList(
+  (0): Resblock_body(
+    (downsample_conv): BasicConv(
+      (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (split_conv0): BasicConv(
+      (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (split_conv1): BasicConv(
+      (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (blocks_conv): Sequential(
+      (0): Resblock(
+        (block): Sequential(
+          (0): BasicConv(
+            (conv): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+          (1): BasicConv(
+            (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+        )
+      )
+      (1): BasicConv(
+        (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+    (concat_conv): BasicConv(
+      (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+  (1): Resblock_body(
+    (downsample_conv): BasicConv(
+      (conv): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (split_conv0): BasicConv(
+      (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (split_conv1): BasicConv(
+      (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (blocks_conv): Sequential(
+      (0): Resblock(
+        (block): Sequential(
+          (0): BasicConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+          (1): BasicConv(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+        )
+      )
+      (1): Resblock(
+        (block): Sequential(
+          (0): BasicConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+          (1): BasicConv(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+        )
+      )
+      (2): BasicConv(
+        (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+    (concat_conv): BasicConv(
+      (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+  (2): Resblock_body(
+    (downsample_conv): BasicConv(
+      (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (split_conv0): BasicConv(
+      (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (split_conv1): BasicConv(
+      (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (blocks_conv): Sequential(
+      (0): Resblock(
+        (block): Sequential(
+          (0): BasicConv(
+            (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+          (1): BasicConv(
+            (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+        )
+      )
+      (1): Resblock(
+        (block): Sequential(
+          (0): BasicConv(
+            (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+          (1): BasicConv(
+            (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+        )
+      )
+      (2): Resblock(
+        (block): Sequential(
+          (0): BasicConv(
+            (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+          (1): BasicConv(
+            (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+        )
+      )
+      (3): Resblock(
+        (block): Sequential(
+          (0): BasicConv(
+            (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+          (1): BasicConv(
+            (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+        )
+      )
+      (4): Resblock(
+        (block): Sequential(
+          (0): BasicConv(
+            (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+          (1): BasicConv(
+            (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+        )
+      )
+      (5): Resblock(
+        (block): Sequential(
+          (0): BasicConv(
+            (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+          (1): BasicConv(
+            (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+        )
+      )
+      (6): Resblock(
+        (block): Sequential(
+          (0): BasicConv(
+            (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+          (1): BasicConv(
+            (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+        )
+      )
+      (7): Resblock(
+        (block): Sequential(
+          (0): BasicConv(
+            (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+          (1): BasicConv(
+            (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+        )
+      )
+      (8): BasicConv(
+        (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+    (concat_conv): BasicConv(
+      (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+  (3): Resblock_body(
+    (downsample_conv): BasicConv(
+      (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (split_conv0): BasicConv(
+      (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (split_conv1): BasicConv(
+      (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (blocks_conv): Sequential(
+      (0): Resblock(
+        (block): Sequential(
+          (0): BasicConv(
+            (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+          (1): BasicConv(
+            (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+        )
+      )
+      (1): Resblock(
+        (block): Sequential(
+          (0): BasicConv(
+            (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+          (1): BasicConv(
+            (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+        )
+      )
+      (2): Resblock(
+        (block): Sequential(
+          (0): BasicConv(
+            (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+          (1): BasicConv(
+            (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+        )
+      )
+      (3): Resblock(
+        (block): Sequential(
+          (0): BasicConv(
+            (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+          (1): BasicConv(
+            (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+        )
+      )
+      (4): Resblock(
+        (block): Sequential(
+          (0): BasicConv(
+            (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+          (1): BasicConv(
+            (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+        )
+      )
+      (5): Resblock(
+        (block): Sequential(
+          (0): BasicConv(
+            (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+          (1): BasicConv(
+            (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+        )
+      )
+      (6): Resblock(
+        (block): Sequential(
+          (0): BasicConv(
+            (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+          (1): BasicConv(
+            (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+        )
+      )
+      (7): Resblock(
+        (block): Sequential(
+          (0): BasicConv(
+            (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+          (1): BasicConv(
+            (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+        )
+      )
+      (8): BasicConv(
+        (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+    (concat_conv): BasicConv(
+      (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+  (4): Resblock_body(
+    (downsample_conv): BasicConv(
+      (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (split_conv0): BasicConv(
+      (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (split_conv1): BasicConv(
+      (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (blocks_conv): Sequential(
+      (0): Resblock(
+        (block): Sequential(
+          (0): BasicConv(
+            (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+          (1): BasicConv(
+            (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+        )
+      )
+      (1): Resblock(
+        (block): Sequential(
+          (0): BasicConv(
+            (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+          (1): BasicConv(
+            (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+        )
+      )
+      (2): Resblock(
+        (block): Sequential(
+          (0): BasicConv(
+            (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+          (1): BasicConv(
+            (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+        )
+      )
+      (3): Resblock(
+        (block): Sequential(
+          (0): BasicConv(
+            (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+          (1): BasicConv(
+            (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (activation): Mish()
+          )
+        )
+      )
+      (4): BasicConv(
+        (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+    (concat_conv): BasicConv(
+      (conv): Conv2d(1024, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+)
+backbone.stages.0
+Resblock_body(
+  (downsample_conv): BasicConv(
+    (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (split_conv0): BasicConv(
+    (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (split_conv1): BasicConv(
+    (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (blocks_conv): Sequential(
+    (0): Resblock(
+      (block): Sequential(
+        (0): BasicConv(
+          (conv): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (1): BasicConv(
+          (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+    )
+    (1): BasicConv(
+      (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+  (concat_conv): BasicConv(
+    (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.0.downsample_conv
+BasicConv(
+  (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.0.downsample_conv.conv
+Conv2d(32, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+backbone.stages.0.downsample_conv.bn
+BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.0.downsample_conv.activation
+Mish()
+backbone.stages.0.split_conv0
+BasicConv(
+  (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.0.split_conv0.conv
+Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.0.split_conv0.bn
+BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.0.split_conv0.activation
+Mish()
+backbone.stages.0.split_conv1
+BasicConv(
+  (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.0.split_conv1.conv
+Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.0.split_conv1.bn
+BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.0.split_conv1.activation
+Mish()
+backbone.stages.0.blocks_conv
+Sequential(
+  (0): Resblock(
+    (block): Sequential(
+      (0): BasicConv(
+        (conv): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (1): BasicConv(
+        (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+  )
+  (1): BasicConv(
+    (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.0.blocks_conv.0
+Resblock(
+  (block): Sequential(
+    (0): BasicConv(
+      (conv): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (1): BasicConv(
+      (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+)
+backbone.stages.0.blocks_conv.0.block
+Sequential(
+  (0): BasicConv(
+    (conv): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (1): BasicConv(
+    (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.0.blocks_conv.0.block.0
+BasicConv(
+  (conv): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.0.blocks_conv.0.block.0.conv
+Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.0.blocks_conv.0.block.0.bn
+BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.0.blocks_conv.0.block.0.activation
+Mish()
+backbone.stages.0.blocks_conv.0.block.1
+BasicConv(
+  (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.0.blocks_conv.0.block.1.conv
+Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+backbone.stages.0.blocks_conv.0.block.1.bn
+BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.0.blocks_conv.0.block.1.activation
+Mish()
+backbone.stages.0.blocks_conv.1
+BasicConv(
+  (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.0.blocks_conv.1.conv
+Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.0.blocks_conv.1.bn
+BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.0.blocks_conv.1.activation
+Mish()
+backbone.stages.0.concat_conv
+BasicConv(
+  (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.0.concat_conv.conv
+Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.0.concat_conv.bn
+BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.0.concat_conv.activation
+Mish()
+backbone.stages.1
+Resblock_body(
+  (downsample_conv): BasicConv(
+    (conv): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (split_conv0): BasicConv(
+    (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (split_conv1): BasicConv(
+    (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (blocks_conv): Sequential(
+    (0): Resblock(
+      (block): Sequential(
+        (0): BasicConv(
+          (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (1): BasicConv(
+          (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+    )
+    (1): Resblock(
+      (block): Sequential(
+        (0): BasicConv(
+          (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (1): BasicConv(
+          (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+    )
+    (2): BasicConv(
+      (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+  (concat_conv): BasicConv(
+    (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.1.downsample_conv
+BasicConv(
+  (conv): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.1.downsample_conv.conv
+Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+backbone.stages.1.downsample_conv.bn
+BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.1.downsample_conv.activation
+Mish()
+backbone.stages.1.split_conv0
+BasicConv(
+  (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.1.split_conv0.conv
+Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.1.split_conv0.bn
+BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.1.split_conv0.activation
+Mish()
+backbone.stages.1.split_conv1
+BasicConv(
+  (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.1.split_conv1.conv
+Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.1.split_conv1.bn
+BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.1.split_conv1.activation
+Mish()
+backbone.stages.1.blocks_conv
+Sequential(
+  (0): Resblock(
+    (block): Sequential(
+      (0): BasicConv(
+        (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (1): BasicConv(
+        (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+  )
+  (1): Resblock(
+    (block): Sequential(
+      (0): BasicConv(
+        (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (1): BasicConv(
+        (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+  )
+  (2): BasicConv(
+    (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.1.blocks_conv.0
+Resblock(
+  (block): Sequential(
+    (0): BasicConv(
+      (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (1): BasicConv(
+      (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+)
+backbone.stages.1.blocks_conv.0.block
+Sequential(
+  (0): BasicConv(
+    (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (1): BasicConv(
+    (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.1.blocks_conv.0.block.0
+BasicConv(
+  (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.1.blocks_conv.0.block.0.conv
+Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.1.blocks_conv.0.block.0.bn
+BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.1.blocks_conv.0.block.0.activation
+Mish()
+backbone.stages.1.blocks_conv.0.block.1
+BasicConv(
+  (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.1.blocks_conv.0.block.1.conv
+Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+backbone.stages.1.blocks_conv.0.block.1.bn
+BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.1.blocks_conv.0.block.1.activation
+Mish()
+backbone.stages.1.blocks_conv.1
+Resblock(
+  (block): Sequential(
+    (0): BasicConv(
+      (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (1): BasicConv(
+      (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+)
+backbone.stages.1.blocks_conv.1.block
+Sequential(
+  (0): BasicConv(
+    (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (1): BasicConv(
+    (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.1.blocks_conv.1.block.0
+BasicConv(
+  (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.1.blocks_conv.1.block.0.conv
+Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.1.blocks_conv.1.block.0.bn
+BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.1.blocks_conv.1.block.0.activation
+Mish()
+backbone.stages.1.blocks_conv.1.block.1
+BasicConv(
+  (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.1.blocks_conv.1.block.1.conv
+Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+backbone.stages.1.blocks_conv.1.block.1.bn
+BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.1.blocks_conv.1.block.1.activation
+Mish()
+backbone.stages.1.blocks_conv.2
+BasicConv(
+  (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.1.blocks_conv.2.conv
+Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.1.blocks_conv.2.bn
+BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.1.blocks_conv.2.activation
+Mish()
+backbone.stages.1.concat_conv
+BasicConv(
+  (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.1.concat_conv.conv
+Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.1.concat_conv.bn
+BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.1.concat_conv.activation
+Mish()
+backbone.stages.2
+Resblock_body(
+  (downsample_conv): BasicConv(
+    (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (split_conv0): BasicConv(
+    (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (split_conv1): BasicConv(
+    (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (blocks_conv): Sequential(
+    (0): Resblock(
+      (block): Sequential(
+        (0): BasicConv(
+          (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (1): BasicConv(
+          (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+    )
+    (1): Resblock(
+      (block): Sequential(
+        (0): BasicConv(
+          (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (1): BasicConv(
+          (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+    )
+    (2): Resblock(
+      (block): Sequential(
+        (0): BasicConv(
+          (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (1): BasicConv(
+          (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+    )
+    (3): Resblock(
+      (block): Sequential(
+        (0): BasicConv(
+          (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (1): BasicConv(
+          (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+    )
+    (4): Resblock(
+      (block): Sequential(
+        (0): BasicConv(
+          (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (1): BasicConv(
+          (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+    )
+    (5): Resblock(
+      (block): Sequential(
+        (0): BasicConv(
+          (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (1): BasicConv(
+          (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+    )
+    (6): Resblock(
+      (block): Sequential(
+        (0): BasicConv(
+          (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (1): BasicConv(
+          (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+    )
+    (7): Resblock(
+      (block): Sequential(
+        (0): BasicConv(
+          (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (1): BasicConv(
+          (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+    )
+    (8): BasicConv(
+      (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+  (concat_conv): BasicConv(
+    (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.2.downsample_conv
+BasicConv(
+  (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.2.downsample_conv.conv
+Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+backbone.stages.2.downsample_conv.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.2.downsample_conv.activation
+Mish()
+backbone.stages.2.split_conv0
+BasicConv(
+  (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.2.split_conv0.conv
+Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.2.split_conv0.bn
+BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.2.split_conv0.activation
+Mish()
+backbone.stages.2.split_conv1
+BasicConv(
+  (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.2.split_conv1.conv
+Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.2.split_conv1.bn
+BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.2.split_conv1.activation
+Mish()
+backbone.stages.2.blocks_conv
+Sequential(
+  (0): Resblock(
+    (block): Sequential(
+      (0): BasicConv(
+        (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (1): BasicConv(
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+  )
+  (1): Resblock(
+    (block): Sequential(
+      (0): BasicConv(
+        (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (1): BasicConv(
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+  )
+  (2): Resblock(
+    (block): Sequential(
+      (0): BasicConv(
+        (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (1): BasicConv(
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+  )
+  (3): Resblock(
+    (block): Sequential(
+      (0): BasicConv(
+        (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (1): BasicConv(
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+  )
+  (4): Resblock(
+    (block): Sequential(
+      (0): BasicConv(
+        (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (1): BasicConv(
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+  )
+  (5): Resblock(
+    (block): Sequential(
+      (0): BasicConv(
+        (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (1): BasicConv(
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+  )
+  (6): Resblock(
+    (block): Sequential(
+      (0): BasicConv(
+        (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (1): BasicConv(
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+  )
+  (7): Resblock(
+    (block): Sequential(
+      (0): BasicConv(
+        (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (1): BasicConv(
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+  )
+  (8): BasicConv(
+    (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.2.blocks_conv.0
+Resblock(
+  (block): Sequential(
+    (0): BasicConv(
+      (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (1): BasicConv(
+      (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+)
+backbone.stages.2.blocks_conv.0.block
+Sequential(
+  (0): BasicConv(
+    (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (1): BasicConv(
+    (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.2.blocks_conv.0.block.0
+BasicConv(
+  (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.2.blocks_conv.0.block.0.conv
+Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.2.blocks_conv.0.block.0.bn
+BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.2.blocks_conv.0.block.0.activation
+Mish()
+backbone.stages.2.blocks_conv.0.block.1
+BasicConv(
+  (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.2.blocks_conv.0.block.1.conv
+Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+backbone.stages.2.blocks_conv.0.block.1.bn
+BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.2.blocks_conv.0.block.1.activation
+Mish()
+backbone.stages.2.blocks_conv.1
+Resblock(
+  (block): Sequential(
+    (0): BasicConv(
+      (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (1): BasicConv(
+      (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+)
+backbone.stages.2.blocks_conv.1.block
+Sequential(
+  (0): BasicConv(
+    (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (1): BasicConv(
+    (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.2.blocks_conv.1.block.0
+BasicConv(
+  (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.2.blocks_conv.1.block.0.conv
+Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.2.blocks_conv.1.block.0.bn
+BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.2.blocks_conv.1.block.0.activation
+Mish()
+backbone.stages.2.blocks_conv.1.block.1
+BasicConv(
+  (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.2.blocks_conv.1.block.1.conv
+Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+backbone.stages.2.blocks_conv.1.block.1.bn
+BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.2.blocks_conv.1.block.1.activation
+Mish()
+backbone.stages.2.blocks_conv.2
+Resblock(
+  (block): Sequential(
+    (0): BasicConv(
+      (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (1): BasicConv(
+      (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+)
+backbone.stages.2.blocks_conv.2.block
+Sequential(
+  (0): BasicConv(
+    (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (1): BasicConv(
+    (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.2.blocks_conv.2.block.0
+BasicConv(
+  (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.2.blocks_conv.2.block.0.conv
+Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.2.blocks_conv.2.block.0.bn
+BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.2.blocks_conv.2.block.0.activation
+Mish()
+backbone.stages.2.blocks_conv.2.block.1
+BasicConv(
+  (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.2.blocks_conv.2.block.1.conv
+Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+backbone.stages.2.blocks_conv.2.block.1.bn
+BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.2.blocks_conv.2.block.1.activation
+Mish()
+backbone.stages.2.blocks_conv.3
+Resblock(
+  (block): Sequential(
+    (0): BasicConv(
+      (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (1): BasicConv(
+      (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+)
+backbone.stages.2.blocks_conv.3.block
+Sequential(
+  (0): BasicConv(
+    (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (1): BasicConv(
+    (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.2.blocks_conv.3.block.0
+BasicConv(
+  (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.2.blocks_conv.3.block.0.conv
+Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.2.blocks_conv.3.block.0.bn
+BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.2.blocks_conv.3.block.0.activation
+Mish()
+backbone.stages.2.blocks_conv.3.block.1
+BasicConv(
+  (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.2.blocks_conv.3.block.1.conv
+Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+backbone.stages.2.blocks_conv.3.block.1.bn
+BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.2.blocks_conv.3.block.1.activation
+Mish()
+backbone.stages.2.blocks_conv.4
+Resblock(
+  (block): Sequential(
+    (0): BasicConv(
+      (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (1): BasicConv(
+      (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+)
+backbone.stages.2.blocks_conv.4.block
+Sequential(
+  (0): BasicConv(
+    (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (1): BasicConv(
+    (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.2.blocks_conv.4.block.0
+BasicConv(
+  (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.2.blocks_conv.4.block.0.conv
+Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.2.blocks_conv.4.block.0.bn
+BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.2.blocks_conv.4.block.0.activation
+Mish()
+backbone.stages.2.blocks_conv.4.block.1
+BasicConv(
+  (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.2.blocks_conv.4.block.1.conv
+Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+backbone.stages.2.blocks_conv.4.block.1.bn
+BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.2.blocks_conv.4.block.1.activation
+Mish()
+backbone.stages.2.blocks_conv.5
+Resblock(
+  (block): Sequential(
+    (0): BasicConv(
+      (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (1): BasicConv(
+      (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+)
+backbone.stages.2.blocks_conv.5.block
+Sequential(
+  (0): BasicConv(
+    (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (1): BasicConv(
+    (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.2.blocks_conv.5.block.0
+BasicConv(
+  (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.2.blocks_conv.5.block.0.conv
+Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.2.blocks_conv.5.block.0.bn
+BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.2.blocks_conv.5.block.0.activation
+Mish()
+backbone.stages.2.blocks_conv.5.block.1
+BasicConv(
+  (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.2.blocks_conv.5.block.1.conv
+Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+backbone.stages.2.blocks_conv.5.block.1.bn
+BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.2.blocks_conv.5.block.1.activation
+Mish()
+backbone.stages.2.blocks_conv.6
+Resblock(
+  (block): Sequential(
+    (0): BasicConv(
+      (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (1): BasicConv(
+      (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+)
+backbone.stages.2.blocks_conv.6.block
+Sequential(
+  (0): BasicConv(
+    (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (1): BasicConv(
+    (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.2.blocks_conv.6.block.0
+BasicConv(
+  (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.2.blocks_conv.6.block.0.conv
+Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.2.blocks_conv.6.block.0.bn
+BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.2.blocks_conv.6.block.0.activation
+Mish()
+backbone.stages.2.blocks_conv.6.block.1
+BasicConv(
+  (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.2.blocks_conv.6.block.1.conv
+Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+backbone.stages.2.blocks_conv.6.block.1.bn
+BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.2.blocks_conv.6.block.1.activation
+Mish()
+backbone.stages.2.blocks_conv.7
+Resblock(
+  (block): Sequential(
+    (0): BasicConv(
+      (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (1): BasicConv(
+      (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+)
+backbone.stages.2.blocks_conv.7.block
+Sequential(
+  (0): BasicConv(
+    (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (1): BasicConv(
+    (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.2.blocks_conv.7.block.0
+BasicConv(
+  (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.2.blocks_conv.7.block.0.conv
+Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.2.blocks_conv.7.block.0.bn
+BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.2.blocks_conv.7.block.0.activation
+Mish()
+backbone.stages.2.blocks_conv.7.block.1
+BasicConv(
+  (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.2.blocks_conv.7.block.1.conv
+Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+backbone.stages.2.blocks_conv.7.block.1.bn
+BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.2.blocks_conv.7.block.1.activation
+Mish()
+backbone.stages.2.blocks_conv.8
+BasicConv(
+  (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.2.blocks_conv.8.conv
+Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.2.blocks_conv.8.bn
+BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.2.blocks_conv.8.activation
+Mish()
+backbone.stages.2.concat_conv
+BasicConv(
+  (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.2.concat_conv.conv
+Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.2.concat_conv.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.2.concat_conv.activation
+Mish()
+backbone.stages.3
+Resblock_body(
+  (downsample_conv): BasicConv(
+    (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (split_conv0): BasicConv(
+    (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (split_conv1): BasicConv(
+    (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (blocks_conv): Sequential(
+    (0): Resblock(
+      (block): Sequential(
+        (0): BasicConv(
+          (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (1): BasicConv(
+          (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+    )
+    (1): Resblock(
+      (block): Sequential(
+        (0): BasicConv(
+          (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (1): BasicConv(
+          (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+    )
+    (2): Resblock(
+      (block): Sequential(
+        (0): BasicConv(
+          (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (1): BasicConv(
+          (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+    )
+    (3): Resblock(
+      (block): Sequential(
+        (0): BasicConv(
+          (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (1): BasicConv(
+          (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+    )
+    (4): Resblock(
+      (block): Sequential(
+        (0): BasicConv(
+          (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (1): BasicConv(
+          (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+    )
+    (5): Resblock(
+      (block): Sequential(
+        (0): BasicConv(
+          (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (1): BasicConv(
+          (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+    )
+    (6): Resblock(
+      (block): Sequential(
+        (0): BasicConv(
+          (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (1): BasicConv(
+          (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+    )
+    (7): Resblock(
+      (block): Sequential(
+        (0): BasicConv(
+          (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (1): BasicConv(
+          (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+    )
+    (8): BasicConv(
+      (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+  (concat_conv): BasicConv(
+    (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.3.downsample_conv
+BasicConv(
+  (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.3.downsample_conv.conv
+Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+backbone.stages.3.downsample_conv.bn
+BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.3.downsample_conv.activation
+Mish()
+backbone.stages.3.split_conv0
+BasicConv(
+  (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.3.split_conv0.conv
+Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.3.split_conv0.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.3.split_conv0.activation
+Mish()
+backbone.stages.3.split_conv1
+BasicConv(
+  (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.3.split_conv1.conv
+Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.3.split_conv1.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.3.split_conv1.activation
+Mish()
+backbone.stages.3.blocks_conv
+Sequential(
+  (0): Resblock(
+    (block): Sequential(
+      (0): BasicConv(
+        (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (1): BasicConv(
+        (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+  )
+  (1): Resblock(
+    (block): Sequential(
+      (0): BasicConv(
+        (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (1): BasicConv(
+        (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+  )
+  (2): Resblock(
+    (block): Sequential(
+      (0): BasicConv(
+        (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (1): BasicConv(
+        (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+  )
+  (3): Resblock(
+    (block): Sequential(
+      (0): BasicConv(
+        (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (1): BasicConv(
+        (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+  )
+  (4): Resblock(
+    (block): Sequential(
+      (0): BasicConv(
+        (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (1): BasicConv(
+        (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+  )
+  (5): Resblock(
+    (block): Sequential(
+      (0): BasicConv(
+        (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (1): BasicConv(
+        (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+  )
+  (6): Resblock(
+    (block): Sequential(
+      (0): BasicConv(
+        (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (1): BasicConv(
+        (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+  )
+  (7): Resblock(
+    (block): Sequential(
+      (0): BasicConv(
+        (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (1): BasicConv(
+        (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+  )
+  (8): BasicConv(
+    (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.3.blocks_conv.0
+Resblock(
+  (block): Sequential(
+    (0): BasicConv(
+      (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (1): BasicConv(
+      (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+)
+backbone.stages.3.blocks_conv.0.block
+Sequential(
+  (0): BasicConv(
+    (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (1): BasicConv(
+    (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.3.blocks_conv.0.block.0
+BasicConv(
+  (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.3.blocks_conv.0.block.0.conv
+Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.3.blocks_conv.0.block.0.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.3.blocks_conv.0.block.0.activation
+Mish()
+backbone.stages.3.blocks_conv.0.block.1
+BasicConv(
+  (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.3.blocks_conv.0.block.1.conv
+Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+backbone.stages.3.blocks_conv.0.block.1.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.3.blocks_conv.0.block.1.activation
+Mish()
+backbone.stages.3.blocks_conv.1
+Resblock(
+  (block): Sequential(
+    (0): BasicConv(
+      (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (1): BasicConv(
+      (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+)
+backbone.stages.3.blocks_conv.1.block
+Sequential(
+  (0): BasicConv(
+    (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (1): BasicConv(
+    (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.3.blocks_conv.1.block.0
+BasicConv(
+  (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.3.blocks_conv.1.block.0.conv
+Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.3.blocks_conv.1.block.0.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.3.blocks_conv.1.block.0.activation
+Mish()
+backbone.stages.3.blocks_conv.1.block.1
+BasicConv(
+  (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.3.blocks_conv.1.block.1.conv
+Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+backbone.stages.3.blocks_conv.1.block.1.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.3.blocks_conv.1.block.1.activation
+Mish()
+backbone.stages.3.blocks_conv.2
+Resblock(
+  (block): Sequential(
+    (0): BasicConv(
+      (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (1): BasicConv(
+      (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+)
+backbone.stages.3.blocks_conv.2.block
+Sequential(
+  (0): BasicConv(
+    (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (1): BasicConv(
+    (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.3.blocks_conv.2.block.0
+BasicConv(
+  (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.3.blocks_conv.2.block.0.conv
+Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.3.blocks_conv.2.block.0.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.3.blocks_conv.2.block.0.activation
+Mish()
+backbone.stages.3.blocks_conv.2.block.1
+BasicConv(
+  (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.3.blocks_conv.2.block.1.conv
+Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+backbone.stages.3.blocks_conv.2.block.1.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.3.blocks_conv.2.block.1.activation
+Mish()
+backbone.stages.3.blocks_conv.3
+Resblock(
+  (block): Sequential(
+    (0): BasicConv(
+      (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (1): BasicConv(
+      (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+)
+backbone.stages.3.blocks_conv.3.block
+Sequential(
+  (0): BasicConv(
+    (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (1): BasicConv(
+    (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.3.blocks_conv.3.block.0
+BasicConv(
+  (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.3.blocks_conv.3.block.0.conv
+Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.3.blocks_conv.3.block.0.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.3.blocks_conv.3.block.0.activation
+Mish()
+backbone.stages.3.blocks_conv.3.block.1
+BasicConv(
+  (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.3.blocks_conv.3.block.1.conv
+Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+backbone.stages.3.blocks_conv.3.block.1.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.3.blocks_conv.3.block.1.activation
+Mish()
+backbone.stages.3.blocks_conv.4
+Resblock(
+  (block): Sequential(
+    (0): BasicConv(
+      (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (1): BasicConv(
+      (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+)
+backbone.stages.3.blocks_conv.4.block
+Sequential(
+  (0): BasicConv(
+    (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (1): BasicConv(
+    (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.3.blocks_conv.4.block.0
+BasicConv(
+  (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.3.blocks_conv.4.block.0.conv
+Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.3.blocks_conv.4.block.0.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.3.blocks_conv.4.block.0.activation
+Mish()
+backbone.stages.3.blocks_conv.4.block.1
+BasicConv(
+  (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.3.blocks_conv.4.block.1.conv
+Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+backbone.stages.3.blocks_conv.4.block.1.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.3.blocks_conv.4.block.1.activation
+Mish()
+backbone.stages.3.blocks_conv.5
+Resblock(
+  (block): Sequential(
+    (0): BasicConv(
+      (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (1): BasicConv(
+      (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+)
+backbone.stages.3.blocks_conv.5.block
+Sequential(
+  (0): BasicConv(
+    (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (1): BasicConv(
+    (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.3.blocks_conv.5.block.0
+BasicConv(
+  (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.3.blocks_conv.5.block.0.conv
+Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.3.blocks_conv.5.block.0.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.3.blocks_conv.5.block.0.activation
+Mish()
+backbone.stages.3.blocks_conv.5.block.1
+BasicConv(
+  (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.3.blocks_conv.5.block.1.conv
+Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+backbone.stages.3.blocks_conv.5.block.1.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.3.blocks_conv.5.block.1.activation
+Mish()
+backbone.stages.3.blocks_conv.6
+Resblock(
+  (block): Sequential(
+    (0): BasicConv(
+      (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (1): BasicConv(
+      (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+)
+backbone.stages.3.blocks_conv.6.block
+Sequential(
+  (0): BasicConv(
+    (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (1): BasicConv(
+    (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.3.blocks_conv.6.block.0
+BasicConv(
+  (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.3.blocks_conv.6.block.0.conv
+Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.3.blocks_conv.6.block.0.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.3.blocks_conv.6.block.0.activation
+Mish()
+backbone.stages.3.blocks_conv.6.block.1
+BasicConv(
+  (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.3.blocks_conv.6.block.1.conv
+Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+backbone.stages.3.blocks_conv.6.block.1.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.3.blocks_conv.6.block.1.activation
+Mish()
+backbone.stages.3.blocks_conv.7
+Resblock(
+  (block): Sequential(
+    (0): BasicConv(
+      (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (1): BasicConv(
+      (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+)
+backbone.stages.3.blocks_conv.7.block
+Sequential(
+  (0): BasicConv(
+    (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (1): BasicConv(
+    (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.3.blocks_conv.7.block.0
+BasicConv(
+  (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.3.blocks_conv.7.block.0.conv
+Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.3.blocks_conv.7.block.0.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.3.blocks_conv.7.block.0.activation
+Mish()
+backbone.stages.3.blocks_conv.7.block.1
+BasicConv(
+  (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.3.blocks_conv.7.block.1.conv
+Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+backbone.stages.3.blocks_conv.7.block.1.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.3.blocks_conv.7.block.1.activation
+Mish()
+backbone.stages.3.blocks_conv.8
+BasicConv(
+  (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.3.blocks_conv.8.conv
+Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.3.blocks_conv.8.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.3.blocks_conv.8.activation
+Mish()
+backbone.stages.3.concat_conv
+BasicConv(
+  (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.3.concat_conv.conv
+Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.3.concat_conv.bn
+BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.3.concat_conv.activation
+Mish()
+backbone.stages.4
+Resblock_body(
+  (downsample_conv): BasicConv(
+    (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (split_conv0): BasicConv(
+    (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (split_conv1): BasicConv(
+    (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (blocks_conv): Sequential(
+    (0): Resblock(
+      (block): Sequential(
+        (0): BasicConv(
+          (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (1): BasicConv(
+          (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+    )
+    (1): Resblock(
+      (block): Sequential(
+        (0): BasicConv(
+          (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (1): BasicConv(
+          (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+    )
+    (2): Resblock(
+      (block): Sequential(
+        (0): BasicConv(
+          (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (1): BasicConv(
+          (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+    )
+    (3): Resblock(
+      (block): Sequential(
+        (0): BasicConv(
+          (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+        (1): BasicConv(
+          (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activation): Mish()
+        )
+      )
+    )
+    (4): BasicConv(
+      (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+  (concat_conv): BasicConv(
+    (conv): Conv2d(1024, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.4.downsample_conv
+BasicConv(
+  (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.4.downsample_conv.conv
+Conv2d(512, 1024, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+backbone.stages.4.downsample_conv.bn
+BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.4.downsample_conv.activation
+Mish()
+backbone.stages.4.split_conv0
+BasicConv(
+  (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.4.split_conv0.conv
+Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.4.split_conv0.bn
+BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.4.split_conv0.activation
+Mish()
+backbone.stages.4.split_conv1
+BasicConv(
+  (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.4.split_conv1.conv
+Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.4.split_conv1.bn
+BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.4.split_conv1.activation
+Mish()
+backbone.stages.4.blocks_conv
+Sequential(
+  (0): Resblock(
+    (block): Sequential(
+      (0): BasicConv(
+        (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (1): BasicConv(
+        (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+  )
+  (1): Resblock(
+    (block): Sequential(
+      (0): BasicConv(
+        (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (1): BasicConv(
+        (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+  )
+  (2): Resblock(
+    (block): Sequential(
+      (0): BasicConv(
+        (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (1): BasicConv(
+        (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+  )
+  (3): Resblock(
+    (block): Sequential(
+      (0): BasicConv(
+        (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+      (1): BasicConv(
+        (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activation): Mish()
+      )
+    )
+  )
+  (4): BasicConv(
+    (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.4.blocks_conv.0
+Resblock(
+  (block): Sequential(
+    (0): BasicConv(
+      (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (1): BasicConv(
+      (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+)
+backbone.stages.4.blocks_conv.0.block
+Sequential(
+  (0): BasicConv(
+    (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (1): BasicConv(
+    (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.4.blocks_conv.0.block.0
+BasicConv(
+  (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.4.blocks_conv.0.block.0.conv
+Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.4.blocks_conv.0.block.0.bn
+BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.4.blocks_conv.0.block.0.activation
+Mish()
+backbone.stages.4.blocks_conv.0.block.1
+BasicConv(
+  (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.4.blocks_conv.0.block.1.conv
+Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+backbone.stages.4.blocks_conv.0.block.1.bn
+BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.4.blocks_conv.0.block.1.activation
+Mish()
+backbone.stages.4.blocks_conv.1
+Resblock(
+  (block): Sequential(
+    (0): BasicConv(
+      (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (1): BasicConv(
+      (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+)
+backbone.stages.4.blocks_conv.1.block
+Sequential(
+  (0): BasicConv(
+    (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (1): BasicConv(
+    (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.4.blocks_conv.1.block.0
+BasicConv(
+  (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.4.blocks_conv.1.block.0.conv
+Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.4.blocks_conv.1.block.0.bn
+BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.4.blocks_conv.1.block.0.activation
+Mish()
+backbone.stages.4.blocks_conv.1.block.1
+BasicConv(
+  (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.4.blocks_conv.1.block.1.conv
+Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+backbone.stages.4.blocks_conv.1.block.1.bn
+BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.4.blocks_conv.1.block.1.activation
+Mish()
+backbone.stages.4.blocks_conv.2
+Resblock(
+  (block): Sequential(
+    (0): BasicConv(
+      (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (1): BasicConv(
+      (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+)
+backbone.stages.4.blocks_conv.2.block
+Sequential(
+  (0): BasicConv(
+    (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (1): BasicConv(
+    (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.4.blocks_conv.2.block.0
+BasicConv(
+  (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.4.blocks_conv.2.block.0.conv
+Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.4.blocks_conv.2.block.0.bn
+BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.4.blocks_conv.2.block.0.activation
+Mish()
+backbone.stages.4.blocks_conv.2.block.1
+BasicConv(
+  (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.4.blocks_conv.2.block.1.conv
+Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+backbone.stages.4.blocks_conv.2.block.1.bn
+BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.4.blocks_conv.2.block.1.activation
+Mish()
+backbone.stages.4.blocks_conv.3
+Resblock(
+  (block): Sequential(
+    (0): BasicConv(
+      (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+    (1): BasicConv(
+      (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activation): Mish()
+    )
+  )
+)
+backbone.stages.4.blocks_conv.3.block
+Sequential(
+  (0): BasicConv(
+    (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+  (1): BasicConv(
+    (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (activation): Mish()
+  )
+)
+backbone.stages.4.blocks_conv.3.block.0
+BasicConv(
+  (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.4.blocks_conv.3.block.0.conv
+Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.4.blocks_conv.3.block.0.bn
+BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.4.blocks_conv.3.block.0.activation
+Mish()
+backbone.stages.4.blocks_conv.3.block.1
+BasicConv(
+  (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.4.blocks_conv.3.block.1.conv
+Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+backbone.stages.4.blocks_conv.3.block.1.bn
+BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.4.blocks_conv.3.block.1.activation
+Mish()
+backbone.stages.4.blocks_conv.4
+BasicConv(
+  (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.4.blocks_conv.4.conv
+Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.4.blocks_conv.4.bn
+BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.4.blocks_conv.4.activation
+Mish()
+backbone.stages.4.concat_conv
+BasicConv(
+  (conv): Conv2d(1024, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (activation): Mish()
+)
+backbone.stages.4.concat_conv.conv
+Conv2d(1024, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+backbone.stages.4.concat_conv.bn
+BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+backbone.stages.4.concat_conv.activation
+Mish()
+conv1
+Sequential(
+  (0): Sequential(
+    (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (1): Sequential(
+    (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (2): Sequential(
+    (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+)
+conv1.0
+Sequential(
+  (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+conv1.0.conv
+Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+conv1.0.bn
+BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+conv1.0.relu
+LeakyReLU(negative_slope=0.1)
+conv1.1
+Sequential(
+  (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+conv1.1.conv
+Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+conv1.1.bn
+BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+conv1.1.relu
+LeakyReLU(negative_slope=0.1)
+conv1.2
+Sequential(
+  (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+conv1.2.conv
+Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+conv1.2.bn
+BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+conv1.2.relu
+LeakyReLU(negative_slope=0.1)
+SPP
+SpatialPyramidPooling(
+  (maxpools): ModuleList(
+    (0): MaxPool2d(kernel_size=5, stride=1, padding=2, dilation=1, ceil_mode=False)
+    (1): MaxPool2d(kernel_size=9, stride=1, padding=4, dilation=1, ceil_mode=False)
+    (2): MaxPool2d(kernel_size=13, stride=1, padding=6, dilation=1, ceil_mode=False)
+  )
+)
+SPP.maxpools
+ModuleList(
+  (0): MaxPool2d(kernel_size=5, stride=1, padding=2, dilation=1, ceil_mode=False)
+  (1): MaxPool2d(kernel_size=9, stride=1, padding=4, dilation=1, ceil_mode=False)
+  (2): MaxPool2d(kernel_size=13, stride=1, padding=6, dilation=1, ceil_mode=False)
+)
+SPP.maxpools.0
+MaxPool2d(kernel_size=5, stride=1, padding=2, dilation=1, ceil_mode=False)
+SPP.maxpools.1
+MaxPool2d(kernel_size=9, stride=1, padding=4, dilation=1, ceil_mode=False)
+SPP.maxpools.2
+MaxPool2d(kernel_size=13, stride=1, padding=6, dilation=1, ceil_mode=False)
+conv2
+Sequential(
+  (0): Sequential(
+    (conv): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (1): Sequential(
+    (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (2): Sequential(
+    (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+)
+conv2.0
+Sequential(
+  (conv): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+conv2.0.conv
+Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+conv2.0.bn
+BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+conv2.0.relu
+LeakyReLU(negative_slope=0.1)
+conv2.1
+Sequential(
+  (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+conv2.1.conv
+Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+conv2.1.bn
+BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+conv2.1.relu
+LeakyReLU(negative_slope=0.1)
+conv2.2
+Sequential(
+  (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+conv2.2.conv
+Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+conv2.2.bn
+BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+conv2.2.relu
+LeakyReLU(negative_slope=0.1)
+upsample1
+Upsample(
+  (upsample): Sequential(
+    (0): Sequential(
+      (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+    (1): Upsample(scale_factor=2.0, mode=nearest)
+  )
+)
+upsample1.upsample
+Sequential(
+  (0): Sequential(
+    (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (1): Upsample(scale_factor=2.0, mode=nearest)
+)
+upsample1.upsample.0
+Sequential(
+  (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+upsample1.upsample.0.conv
+Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+upsample1.upsample.0.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+upsample1.upsample.0.relu
+LeakyReLU(negative_slope=0.1)
+upsample1.upsample.1
+Upsample(scale_factor=2.0, mode=nearest)
+conv_for_P4
+Sequential(
+  (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+conv_for_P4.conv
+Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+conv_for_P4.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+conv_for_P4.relu
+LeakyReLU(negative_slope=0.1)
+make_five_conv1
+Sequential(
+  (0): Sequential(
+    (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (1): Sequential(
+    (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (2): Sequential(
+    (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (3): Sequential(
+    (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (4): Sequential(
+    (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+)
+make_five_conv1.0
+Sequential(
+  (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+make_five_conv1.0.conv
+Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+make_five_conv1.0.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+make_five_conv1.0.relu
+LeakyReLU(negative_slope=0.1)
+make_five_conv1.1
+Sequential(
+  (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+make_five_conv1.1.conv
+Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+make_five_conv1.1.bn
+BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+make_five_conv1.1.relu
+LeakyReLU(negative_slope=0.1)
+make_five_conv1.2
+Sequential(
+  (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+make_five_conv1.2.conv
+Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+make_five_conv1.2.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+make_five_conv1.2.relu
+LeakyReLU(negative_slope=0.1)
+make_five_conv1.3
+Sequential(
+  (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+make_five_conv1.3.conv
+Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+make_five_conv1.3.bn
+BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+make_five_conv1.3.relu
+LeakyReLU(negative_slope=0.1)
+make_five_conv1.4
+Sequential(
+  (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+make_five_conv1.4.conv
+Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+make_five_conv1.4.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+make_five_conv1.4.relu
+LeakyReLU(negative_slope=0.1)
+upsample2
+Upsample(
+  (upsample): Sequential(
+    (0): Sequential(
+      (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): LeakyReLU(negative_slope=0.1)
+    )
+    (1): Upsample(scale_factor=2.0, mode=nearest)
+  )
+)
+upsample2.upsample
+Sequential(
+  (0): Sequential(
+    (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (1): Upsample(scale_factor=2.0, mode=nearest)
+)
+upsample2.upsample.0
+Sequential(
+  (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+upsample2.upsample.0.conv
+Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+upsample2.upsample.0.bn
+BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+upsample2.upsample.0.relu
+LeakyReLU(negative_slope=0.1)
+upsample2.upsample.1
+Upsample(scale_factor=2.0, mode=nearest)
+conv_for_P3
+Sequential(
+  (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+conv_for_P3.conv
+Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+conv_for_P3.bn
+BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+conv_for_P3.relu
+LeakyReLU(negative_slope=0.1)
+make_five_conv2
+Sequential(
+  (0): Sequential(
+    (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (1): Sequential(
+    (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (2): Sequential(
+    (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (3): Sequential(
+    (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (4): Sequential(
+    (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+)
+make_five_conv2.0
+Sequential(
+  (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+make_five_conv2.0.conv
+Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+make_five_conv2.0.bn
+BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+make_five_conv2.0.relu
+LeakyReLU(negative_slope=0.1)
+make_five_conv2.1
+Sequential(
+  (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+make_five_conv2.1.conv
+Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+make_five_conv2.1.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+make_five_conv2.1.relu
+LeakyReLU(negative_slope=0.1)
+make_five_conv2.2
+Sequential(
+  (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+make_five_conv2.2.conv
+Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+make_five_conv2.2.bn
+BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+make_five_conv2.2.relu
+LeakyReLU(negative_slope=0.1)
+make_five_conv2.3
+Sequential(
+  (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+make_five_conv2.3.conv
+Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+make_five_conv2.3.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+make_five_conv2.3.relu
+LeakyReLU(negative_slope=0.1)
+make_five_conv2.4
+Sequential(
+  (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+make_five_conv2.4.conv
+Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+make_five_conv2.4.bn
+BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+make_five_conv2.4.relu
+LeakyReLU(negative_slope=0.1)
+yolo_head3
+Sequential(
+  (0): Sequential(
+    (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (1): Conv2d(256, 24, kernel_size=(1, 1), stride=(1, 1))
+)
+yolo_head3.0
+Sequential(
+  (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+yolo_head3.0.conv
+Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+yolo_head3.0.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+yolo_head3.0.relu
+LeakyReLU(negative_slope=0.1)
+yolo_head3.1
+Conv2d(256, 24, kernel_size=(1, 1), stride=(1, 1))
+down_sample1
+Sequential(
+  (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+down_sample1.conv
+Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+down_sample1.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+down_sample1.relu
+LeakyReLU(negative_slope=0.1)
+make_five_conv3
+Sequential(
+  (0): Sequential(
+    (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (1): Sequential(
+    (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (2): Sequential(
+    (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (3): Sequential(
+    (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (4): Sequential(
+    (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+)
+make_five_conv3.0
+Sequential(
+  (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+make_five_conv3.0.conv
+Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+make_five_conv3.0.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+make_five_conv3.0.relu
+LeakyReLU(negative_slope=0.1)
+make_five_conv3.1
+Sequential(
+  (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+make_five_conv3.1.conv
+Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+make_five_conv3.1.bn
+BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+make_five_conv3.1.relu
+LeakyReLU(negative_slope=0.1)
+make_five_conv3.2
+Sequential(
+  (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+make_five_conv3.2.conv
+Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+make_five_conv3.2.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+make_five_conv3.2.relu
+LeakyReLU(negative_slope=0.1)
+make_five_conv3.3
+Sequential(
+  (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+make_five_conv3.3.conv
+Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+make_five_conv3.3.bn
+BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+make_five_conv3.3.relu
+LeakyReLU(negative_slope=0.1)
+make_five_conv3.4
+Sequential(
+  (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+make_five_conv3.4.conv
+Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+make_five_conv3.4.bn
+BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+make_five_conv3.4.relu
+LeakyReLU(negative_slope=0.1)
+yolo_head2
+Sequential(
+  (0): Sequential(
+    (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (1): Conv2d(512, 24, kernel_size=(1, 1), stride=(1, 1))
+)
+yolo_head2.0
+Sequential(
+  (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+yolo_head2.0.conv
+Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+yolo_head2.0.bn
+BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+yolo_head2.0.relu
+LeakyReLU(negative_slope=0.1)
+yolo_head2.1
+Conv2d(512, 24, kernel_size=(1, 1), stride=(1, 1))
+down_sample2
+Sequential(
+  (conv): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+down_sample2.conv
+Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+down_sample2.bn
+BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+down_sample2.relu
+LeakyReLU(negative_slope=0.1)
+make_five_conv4
+Sequential(
+  (0): Sequential(
+    (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (1): Sequential(
+    (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (2): Sequential(
+    (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (3): Sequential(
+    (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (4): Sequential(
+    (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+)
+make_five_conv4.0
+Sequential(
+  (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+make_five_conv4.0.conv
+Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+make_five_conv4.0.bn
+BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+make_five_conv4.0.relu
+LeakyReLU(negative_slope=0.1)
+make_five_conv4.1
+Sequential(
+  (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+make_five_conv4.1.conv
+Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+make_five_conv4.1.bn
+BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+make_five_conv4.1.relu
+LeakyReLU(negative_slope=0.1)
+make_five_conv4.2
+Sequential(
+  (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+make_five_conv4.2.conv
+Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+make_five_conv4.2.bn
+BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+make_five_conv4.2.relu
+LeakyReLU(negative_slope=0.1)
+make_five_conv4.3
+Sequential(
+  (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+make_five_conv4.3.conv
+Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+make_five_conv4.3.bn
+BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+make_five_conv4.3.relu
+LeakyReLU(negative_slope=0.1)
+make_five_conv4.4
+Sequential(
+  (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+make_five_conv4.4.conv
+Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+make_five_conv4.4.bn
+BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+make_five_conv4.4.relu
+LeakyReLU(negative_slope=0.1)
+yolo_head1
+Sequential(
+  (0): Sequential(
+    (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): LeakyReLU(negative_slope=0.1)
+  )
+  (1): Conv2d(1024, 24, kernel_size=(1, 1), stride=(1, 1))
+)
+yolo_head1.0
+Sequential(
+  (conv): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): LeakyReLU(negative_slope=0.1)
+)
+yolo_head1.0.conv
+Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+yolo_head1.0.bn
+BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+yolo_head1.0.relu
+LeakyReLU(negative_slope=0.1)
+yolo_head1.1
+Conv2d(1024, 24, kernel_size=(1, 1), stride=(1, 1))
